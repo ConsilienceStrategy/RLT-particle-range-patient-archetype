@@ -325,10 +325,7 @@ ol.steps li strong { color: var(--navy); }
 /* ── FOOTNOTES LIST ── */
 .footnotes-section {
   margin-top: 3rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--rule);
 }
-.footnotes-section h2 { font-size: 1.25rem; margin-bottom: 0.8rem; }
 ol.footnotes-list {
   font-size: 0.85rem;
   color: var(--body-text);
@@ -604,6 +601,7 @@ details.appx > summary > h2 { margin-top: 3rem; }
 /* ── MOBILE: phones ── */
 @media (max-width: 640px) {
   a.cite { white-space: normal; }
+  ol.footnotes-list li:target { margin-left: -0.6rem; padding-left: 0.6rem; }
   .table-wrap table { min-width: var(--tw-min, 640px); }
   .table-wrap th:first-child,
   .table-wrap td:first-child { position: sticky; left: 0; z-index: 1; background: #fff; box-shadow: inset -1px 0 0 var(--rule); }
@@ -637,7 +635,7 @@ details.appx > summary > h2 { margin-top: 3rem; }
   <div class="hero-inner">
         <h1><span class="clause">How far the radiation reaches,</span> <span class="clause">and who it treats</span></h1>
     <p class="hero-subtitle">Particle range and patient archetype in radioligand-therapy (RLT) portfolio decisions</p>
-    <p class="hero-meta">Christian Wasmer &middot; Consilience &middot; November 3, 2026</p>
+    <p class="hero-meta">Christian Wasmer &middot; Consilience &middot; November 19, 2026</p>
     <p class="hero-meta"><a href="https://www.consiliencestrategy.com">www.consiliencestrategy.com</a></p>
   </div>
 </section>
@@ -683,7 +681,7 @@ details.appx > summary > h2 { margin-top: 3rem; }
 <tr><td>β (high-energy)</td><td><sup>90</sup>Y</td><td>5.5 mm</td><td>Macroscopic crossfire; dose dilution over larger volumes. Used in HCC SIRT (TheraSphere, SIR-Spheres) and in Zevalin (CD20, discontinued).</td></tr>
 <tr><td>β (standard)</td><td><sup>177</sup>Lu, <sup>131</sup>I, <sup>67</sup>Cu</td><td>0.6–0.9 mm</td><td>Lower LET; crossfire reaching across tens of cell diameters. The workhorse of the current RLT field — Pluvicto, Lutathera, others.</td></tr>
 <tr><td>β + Auger</td><td><sup>161</sup>Tb</td><td>0.7 mm (β) + nm–30 μm (Auger, conversion electrons)</td><td><sup>177</sup>Lu-compatible chemistry. Emits ~12 low-energy Auger and conversion electrons per decay, against ~1 for <sup>177</sup>Lu; hence a higher dose to cells that internalize the radionuclide and to their direct neighbors (<a class="cite" id="cite-alcocer-2020" href="#ref-alcocer-2020">Alcocer-Ávila et al., <em>EJNMMI Phys</em> 2020</a>). The retention that raises tumor dose also slows off-target clearance, so internalized activity in kidney and salivary tissue can become dose-limiting. VIOLET first-in-human signal in mCRPC.</td></tr>
-<tr><td>α</td><td><sup>223</sup>Ra, <sup>225</sup>Ac, <sup>212</sup>Pb, <sup>211</sup>At, <sup>227</sup>Th, <sup>224</sup>Ra</td><td>40–100 μm (0.04–0.1 mm)</td><td>High LET, rising toward the end of the path; dose confined to within ~10 cell diameters. Approved (<sup>223</sup>Ra in Xofigo) and multiple in development across PSMA, SSTR2, FAP, GRPR, MC1R targets.</td></tr>
+<tr><td>α</td><td><sup>223</sup>Ra, <sup>225</sup>Ac, <sup>212</sup>Pb, <sup>211</sup>At, <sup>227</sup>Th, <sup>224</sup>Ra</td><td>40–100 μm (0.04–0.1 mm)</td><td>High LET, rising toward the end of the path; dose confined to within ~10 cell diameters. Approved (<sup>223</sup>Ra in Xofigo) and multiple in development across PSMA, SSTR2, FAP, GRPR, MC1R targets. In the <sup>212</sup>Pb chain, β emissions add a minor dose contribution (mm reach).<a class="fn-marker" id="fnref-1" href="#fn-1" aria-label="Note 1">1</a></td></tr>
 </tbody>
 </table>
 </div>
@@ -1561,14 +1559,19 @@ high-energy β
 <tbody>
 <tr><td><sup>225</sup>Ac</td><td><sup>221</sup>Fr (4.8 min), <sup>213</sup>Bi (45.6 min)</td><td>both daughters redistribute</td></tr>
 <tr><td><sup>224</sup>Ra</td><td><sup>220</sup>Rn (55.6 s), <sup>212</sup>Pb (10.6 h)</td><td><sup>220</sup>Rn is a noble gas and diffuses; <sup>212</sup>Pb continues as below</td></tr>
-<tr><td><sup>212</sup>Pb</td><td><sup>212</sup>Bi (60.6 min)</td><td>chelator escape observed but not caused by recoil</td></tr>
+<tr><td><sup>212</sup>Pb</td><td><sup>212</sup>Bi (60.6 min)</td><td>chelator escape ~36% from DOTA and ~16% estimated from DOTAM; not caused by recoil (<a class="cite" id="cite-zaid-2023" href="#ref-zaid-2023">Zaid et al., <em>Cancer Biother Radiopharm</em> 2023</a>)</td></tr>
 <tr><td><sup>227</sup>Th</td><td><sup>223</sup>Ra (11.4 d)</td><td>radium is bone-seeking</td></tr>
 <tr><td><sup>223</sup>Ra</td><td><sup>219</sup>Rn (3.9 s), <sup>211</sup>Pb (36.1 min)</td><td>typically stays in bone</td></tr>
-<tr><td><sup>211</sup>At</td><td>none (<sup>211</sup>Po, 0.5 s)</td><td>decays before it reaches other organs</td></tr>
+<tr><td><sup>211</sup>At</td><td><sup>207</sup>Bi (31.6 y, from the 42% α branch)</td><td><sup>207</sup>Bi emits no α, and its long half-life keeps its activity negligible; the α-emitting <sup>211</sup>Po (0.5 s) decays before it moves</td></tr>
 </tbody>
 </table>
 
-<p>Both <sup>213</sup>Bi and <sup>212</sup>Bi persist long enough to reach the kidneys and other tissue. Part of the <sup>225</sup>Ac or <sup>212</sup>Pb dose is therefore deposited there. In this respect, <sup>211</sup>At is an exception, as its <sup>211</sup>Po daughter decays in under a second. Its 7.2-hour half-life, which suits only fast-targeting ligands, and limited cyclotron capacity have kept programs few, though. In October 2026, Telix and Ekalia announced a dedicated <sup>211</sup>At cyclotron in the US (<a class="cite" id="cite-telix-2026" href="#ref-telix-2026">Telix 2026</a>).</p>
+<p>Both <sup>213</sup>Bi and <sup>212</sup>Bi persist long enough to reach the kidneys and other tissue. Part of the <sup>225</sup>Ac or <sup>212</sup>Pb dose is therefore deposited there. 
+  In this respect, <sup>211</sup>At is an exception, as it has no α-emitting daughter that can redistribute (<sup>211</sup>Po decays in 0.5 s; <sup>207</sup>Bi emits no α). 
+  However, as astatine is bound covalently (not in a chelator), many <sup>211</sup>At compounds lose it in vivo via "deastatination", and free astatide accumulates in stomach and thyroid; 
+  newer labeling designs reduced the effect in mice (<a class="cite" id="cite-murata-2025" href="#ref-murata-2025">Murata et al., <em>Nucl Med Biol</em> 2025</a>). 
+  Also, astatine's 7.2-hour half-life suits only fast-targeting ligands and requires cyclotron capacity in geographic proximity, which is limited and has kept programs few. 
+  Notably though, in October 2026, Telix and Ekalia announced a dedicated <sup>211</sup>At cyclotron in the US (<a class="cite" id="cite-telix-2026" href="#ref-telix-2026">Telix 2026</a>).</p>
 
 <p>Clinical relevance of the effect is still unclear. Free <sup>213</sup>Bi concentrates in the kidney in preclinical models, and case reports describe nephrotoxicity after <sup>225</sup>Ac-PSMA-617 (<a class="cite" id="cite-bidkar-2024c" href="#ref-bidkar-2024">Bidkar et al., <em>Theranostics</em> 2024</a>), but no clinical toxicity has yet been attributed to daughter release (<a class="cite" id="cite-hooijman-2024" href="#ref-hooijman-2024">Hooijman et al., <em>EJNMMI Radiopharm Chem</em> 2024</a>). For now, salivary gland rather than renal dose appears to remain the limiting factor in α programs' dose escalation.</p>
 
@@ -1709,6 +1712,14 @@ high-energy β
   <p>Claude (Anthropic, Claude Opus 4.8/5.0/5.5) was used to assist with secondary research, database setup, proofreading, and final formatting.</p>
 </section>
 
+<!-- Notes -->
+<section class="footnotes-section">
+<h2>Notes</h2>
+<ol class="footnotes-list">
+<li id="fn-1">The <sup>212</sup>Pb and <sup>225</sup>Ac chains also emit β particles, with mm reach. In the <sup>212</sup>Pb chain, 2 β decays (<sup>212</sup>Pb, then <sup>212</sup>Bi or <sup>208</sup>Tl) carry ~0.8 MeV per <sup>212</sup>Pb decay, against ~7.8 MeV from the single α. β contributes 2.2% of the RBE-weighted dose (α weighted 5×), i.e., ~10% of the absorbed dose (<a class="cite" id="cite-dossantos-2019" href="#ref-dossantos-2019">dos Santos et al., <em>Eur J Nucl Med Mol Imaging</em> 2019</a>). For <sup>225</sup>Ac, with 4 α emissions per chain, β and other electrons contribute ~0.4–2% of the absorbed dose in modeled organs (<a class="cite" id="cite-sgouros-2021" href="#ref-sgouros-2021">Sgouros et al., <em>EJNMMI Phys</em> 2021</a>). In micrometastases most β energy leaves the lesion; in larger lesions it adds a low dose beyond α reach. We therefore keep both isotopes in the α class.<a class="fn-back" href="#fnref-1">↩ back to text</a></li>
+</ol>
+</section>
+
 <h2 id="references">References</h2>
 <div class="ref-list">
 <p id="ref-alcocer-2020">Alcocer-Ávila ME, Ferreira A, Quinto MA, Morgat C, Hindié E, Champion C. Radiation doses from <sup>161</sup>Tb and <sup>177</sup>Lu in single tumour cells and micrometastases. <em>EJNMMI Phys</em> 2020;7(1):33. <a href="https://pubmed.ncbi.nlm.nih.gov/32430671/" target="_blank">PMID 32430671</a><a class="ref-back" href="#cite-alcocer-2020">↩ back to text</a></p>
@@ -1719,6 +1730,7 @@ high-energy β
 <p id="ref-buteau-2025">Buteau JP et al. First-in-human results of terbium-161 <sup>161</sup>Tb-PSMA-I&T dual β-Auger radioligand therapy in mCRPC (VIOLET). <em>Lancet Oncol</em> 2025;26(8):1009-1017. <a href="https://pubmed.ncbi.nlm.nih.gov/40617237/" target="_blank">PMID 40617237</a><a class="ref-back" href="#cite-buteau-2025">↩ back to text</a></p>
 <p id="ref-cheson-2014">Cheson BD et al. Lugano classification. <em>J Clin Oncol</em> 2014;32(27):3059-3068. <a href="https://pubmed.ncbi.nlm.nih.gov/25113753/" target="_blank">PMID 25113753</a></p>
 <p id="ref-deboer-2009">de Boer M et al. Micrometastases or isolated tumor cells and the outcome of breast cancer. <em>N Engl J Med</em> 2009;361(7):653-663. <a href="https://www.nejm.org/doi/full/10.1056/NEJMoa0904832" target="_blank">DOI 10.1056/NEJMoa0904832</a><a class="ref-back" href="#cite-deboer-2009">↩ back to text</a></p>
+<p id="ref-dossantos-2019">dos Santos JC, Schäfer M, Bauder-Wüst U, et al. Development and dosimetry of <sup>203</sup>Pb/<sup>212</sup>Pb-labelled PSMA ligands: bringing "the lead" into PSMA-targeted alpha therapy? <em>Eur J Nucl Med Mol Imaging</em> 2019;46(5):1081-1091. <a href="https://pubmed.ncbi.nlm.nih.gov/30603987/" target="_blank">PMID 30603987</a><a class="ref-back" href="#cite-dossantos-2019">↩ back to text</a></p>
 <p id="ref-drago-2021">Drago JZ, Modi S, Chandarlapaty S. Unlocking the potential of antibody-drug conjugates for cancer therapy. <em>Nat Rev Clin Oncol</em> 2021;18(6):327-344. <a href="https://pubmed.ncbi.nlm.nih.gov/33558752/" target="_blank">PMID 33558752</a><a class="ref-back" href="#cite-drago-2021">↩ back to text</a></p>
 <p id="ref-du-2015">Du S et al. Aggressive locoregional treatment for G3 GEP-NET liver mets. <em>Medicine</em> 2015. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4602914/" target="_blank">PMC4602914</a></p>
 <p id="ref-eanm-2026">EANM'26 Annual Congress of the European Association of Nuclear Medicine, Vienna, October 17–21, 2026: Abstracts. <em>EANM Innovation</em> 2026:S1–S1265 (abstracts OP-082, OP-464, OP-678, OP-685). <a href="https://doi.org/10.1016/S3051-2913(26)00285-5" target="_blank">DOI 10.1016/S3051-2913(26)00285-5</a><a class="ref-back" href="#cite-eanm-2026">↩ back to text</a></p>
@@ -1735,6 +1747,7 @@ high-energy β
 <p id="ref-kuo-2023">Kuo PH, Yoo DC, Avery R, et al. A VISION substudy of reader agreement on <sup>68</sup>Ga-PSMA-11 PET/CT scan interpretation to determine patient eligibility for <sup>177</sup>Lu-PSMA-617 radioligand therapy. <em>J Nucl Med</em> 2023;64(8):1259-1265. <a href="https://pubmed.ncbi.nlm.nih.gov/37230533/" target="_blank">PMID 37230533</a></p>
 <p id="ref-kurtz-2018">Kurtz DM, Scherer F, Jin MC, et al. Circulating tumor DNA measurements as early outcome predictors in diffuse large B-cell lymphoma. <em>J Clin Oncol</em> 2018;36(28):2845-2853. <a href="https://pubmed.ncbi.nlm.nih.gov/30125215/" target="_blank">PMID 30125215</a></p>
 <p id="ref-lee-2022">Lee H et al. Relative Efficacy of <sup>225</sup>Ac-PSMA-617 and <sup>177</sup>Lu-PSMA-617 in Prostate Cancer Based on Subcellular Dosimetry. <em>Mol Imaging Radionucl Ther</em> 2022;31(1):1-6. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8814544/" target="_blank">PMC8814544</a><a class="ref-back" href="#cite-lee-2022">↩ back to text</a></p>
+<p id="ref-murata-2025">Murata M, Kannaka K, Tatsuta S, et al. Evaluation of astatine-211-labeled benzoate derivatives for improved in vivo stability. <em>Nucl Med Biol</em> 2025;150-151:109561. <a href="https://pubmed.ncbi.nlm.nih.gov/41056583/" target="_blank">PMID 41056583</a><a class="ref-back" href="#cite-murata-2025">↩ back to text</a></p>
 <p id="ref-nccn-2026">NCCN HCC v1.2026. <a href="https://www.nccn.org/professionals/physician_gls/pdf/hcc.pdf" target="_blank">NCCN</a><a class="ref-back" href="#cite-nccn-2026">↩ back to text</a></p>
 <p id="ref-nccn-2026-2">NCCN MM v5.2026. <a href="https://www.nccn.org/professionals/physician_gls/pdf/myeloma.pdf" target="_blank">NCCN</a></p>
 <p id="ref-novartis-2026">Novartis. <sup>225</sup>Ac-PSMA-617 (AcTION) data; AcTFirst (<a href="https://clinicaltrials.gov/study/NCT06855277" target="_blank">NCT06855277</a>) and PSMAcTION (<a href="https://clinicaltrials.gov/study/NCT06780670" target="_blank">NCT06780670</a>) Phase 3 programs. ASCO 2026.<a class="ref-back" href="#cite-novartis-2026">↩ back to text</a></p>
@@ -1748,6 +1761,7 @@ high-energy β
 <p id="ref-sartor-2026">Sartor O et al. AcTFirst: Phase 3 of <sup>225</sup>Ac-PSMA-617 + ARPI vs standard of care in PSMA-positive frontline mCRPC (trials in progress). ASCO 2026. <a href="https://clinicaltrials.gov/study/NCT06855277" target="_blank">NCT06855277</a><a class="ref-back" href="#cite-sartor-2026">↩ back to text</a></p>
 <p id="ref-scher-2016">Scher HI et al. PCWG3 criteria. <em>JCO</em> 2016. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4872347/" target="_blank">PMC4872347</a></p>
 <p id="ref-sgouros-2010">Sgouros G et al. MIRD Pamphlet No. 22. <em>J Nucl Med</em> 2010;51(2):311-328. <a href="https://jnm.snmjournals.org/content/51/2/311" target="_blank">JNM</a></p>
+<p id="ref-sgouros-2021">Sgouros G, He B, Ray N, Ludwig DL, Frey EC. Dosimetric impact of Ac-227 in accelerator-produced Ac-225 for alpha-emitter radiopharmaceutical therapy of patients with hematological malignancies: a pharmacokinetic modeling analysis. <em>EJNMMI Phys</em> 2021;8(1):60. <a href="https://pubmed.ncbi.nlm.nih.gov/34406515/" target="_blank">PMID 34406515</a><a class="ref-back" href="#cite-sgouros-2021">↩ back to text</a></p>
 <p id="ref-spoormans-2024">Spoormans K, Struelens L, Vermeulen K, De Saint-Hubert M, Koole M, Crabbé M. The emission of internal conversion electrons rather than Auger electrons increased the nucleus-absorbed dose for <sup>161</sup>Tb compared with <sup>177</sup>Lu with a higher dose response for [<sup>161</sup>Tb]Tb-DOTA-LM3 than for [<sup>161</sup>Tb]Tb-DOTATATE. <em>J Nucl Med</em> 2024;65(10):1619-1625. <a href="https://pubmed.ncbi.nlm.nih.gov/39209546/" target="_blank">PMID 39209546</a><a class="ref-back" href="#cite-spoormans-2024">↩ back to text</a></p>
 <p id="ref-spoormans-2026">Spoormans K, Struelens L, Koole M, Crabbé M. From uniform to heterogeneous dose models: connecting cellular and tumor absorbed dose-response for [<sup>177</sup>Lu]Lu-DOTATATE and [<sup>161</sup>Tb]Tb-DOTATATE. <em>Eur J Nucl Med Mol Imaging</em> 2026;53(6):3809-3816. <a href="https://pubmed.ncbi.nlm.nih.gov/41656422/" target="_blank">PMID 41656422</a><a class="ref-back" href="#cite-spoormans-2026">↩ back to text</a></p>
 <p id="ref-stabler-1996">Stäbler A et al. MR imaging of multiple myeloma. <em>AJR</em> 1996. <a href="https://pubmed.ncbi.nlm.nih.gov/8819407/" target="_blank">PMID 8819407</a></p>
@@ -1757,6 +1771,7 @@ high-energy β
 <p id="ref-velo-2026">Velo AF, O'Donoghue J, Carter L, Lerner E, Bodei L, Humm JL. Multiscale Monte Carlo-based dosimetry of <sup>177</sup>Lu and <sup>211</sup>At across distinct tumor microarchitectures. <em>EJNMMI Phys</em> 2026 (article in press). <a href="https://doi.org/10.1186/s40658-026-00961-6" target="_blank">DOI 10.1186/s40658-026-00961-6</a><a class="ref-back" href="#cite-velo-2026">↩ back to text</a></p>
 <p id="ref-walter-2026">Walter T, Jann H, Ansquer C, et al. [<sup>177</sup>Lu]Lu-edotreotide versus everolimus for gastroenteropancreatic neuroendocrine tumours (COMPETE): a phase 3, multicentre, randomised, open-label, superiority trial. <em>Lancet</em> 2026;408(10551):234-247. <a href="https://pubmed.ncbi.nlm.nih.gov/42392118/" target="_blank">PMID 42392118</a></p>
 <p id="ref-yau-2025">Yau T et al. CheckMate 9DW. <em>Lancet</em> 2025;405:1851-1864. <a href="https://pubmed.ncbi.nlm.nih.gov/40349714/" target="_blank">PMID 40349714</a></p>
+<p id="ref-zaid-2023">Zaid NRR, Kletting P, Beer AJ, Stallons TAR, Torgue JJ, Glatting G. Mathematical modeling of in vivo alpha particle generators and chelator stability. <em>Cancer Biother Radiopharm</em> 2023;38(8):528-535. <a href="https://pubmed.ncbi.nlm.nih.gov/33481653/" target="_blank">PMID 33481653</a><a class="ref-back" href="#cite-zaid-2023">↩ back to text</a></p>
 </div>
 
 <h2 id="technical">Appendix A — Technical basis</h2>
